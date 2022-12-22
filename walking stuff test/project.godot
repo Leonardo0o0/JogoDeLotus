@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="rpg_testing"
+config/description="some tests on simple rpg-like combat.
+"
+run/main_scene="res://scenes/sprite testing/Sprite.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=480
+window/size/height=780
+window/per_pixel_transparency/allowed=true
+window/per_pixel_transparency/enabled=true
+
+[global]
+
+snap=false
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+2d/snapping/use_gpu_pixel_snap=true
+2d/options/ninepatch_mode=0
+environment/default_environment="res://default_env.tres"

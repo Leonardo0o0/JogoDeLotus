@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/main/Main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/slime/slime.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 784, 0, 0, 0, 0, 0, 784, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="testing mob and colision" type="Node2D"]
+script = ExtResource( 1 )
+mobscene = ExtResource( 3 )
+
+[node name="mobtimer" type="Timer" parent="."]
+
+[node name="scoretimer" type="Timer" parent="."]
+
+[node name="starttimer" type="Timer" parent="."]
+
+[node name="start" type="Position2D" parent="."]
+position = Vector2( 240, 450 )
+
+[node name="mobspawner" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="spawnlocation" type="PathFollow2D" parent="mobspawner"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 200, 200 )
+
+[connection signal="timeout" from="mobtimer" to="." method="_on_mobtimer_timeout"]
+[connection signal="timeout" from="scoretimer" to="." method="_on_scoretimer_timeout"]
+[connection signal="timeout" from="starttimer" to="." method="_on_starttimer_timeout"]
+[connection signal="hit" from="Player" to="." method="gameover"]
