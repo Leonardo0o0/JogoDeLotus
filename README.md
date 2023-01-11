@@ -22,3 +22,4 @@ Atividades em progresso:
   1. Finalização do primeiro projeto 2d;
   2. Iniciação do primeiro projeto 3d;
   3. Aprendizado de github;
+  4. tutorial RPG Topdown;
