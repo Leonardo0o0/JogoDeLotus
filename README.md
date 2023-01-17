@@ -1,3 +1,0 @@
-# JogoDeLotus
-
-Jogo DS
