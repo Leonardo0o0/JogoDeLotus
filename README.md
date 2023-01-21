@@ -1,25 +1,24 @@
-# JogoDeLotus
+# Jogo De Lotus
 
-Jogo DS
+Jogo criado para os propósitos de cursar a matéria de Desenvolvimento de Software na FGA-UnB
 
 Branch de teste de R. Salles;
 
 Atualmente testando os seguintes protótipos:
-  1. opacidade de textura por area de intersecção
-  2. Interação via input
-  3. Cenas de combate
-  4. Mudança de cena
+  1. Sistema básico de vida e combate
+  2. Inimigos
+  3. Interação via input
+  4. Cenas de combate
+  5. Mudança de cena
  
  Atualmente aprendendo:
-  1. Como utilizar o git/github corretamente;
-  2. Como parar de levar uma surra da godot engine;
+  1. Como parar de levar uma surra da godot engine;
+  2. FLStudio
 
  Atividades realizadas:
   1. Primeiro protótipo 2d;
   2. Tilemaping por área de textura (Apenas quadrados, por enquanto...);
 
 Atividades em progresso:
-  1. Finalização do primeiro projeto 2d;
-  2. Iniciação do primeiro projeto 3d;
-  3. Aprendizado de github;
-  4. tutorial RPG Topdown;
+  1. tutorial RPG Topdown;
+  2. Combate e Inimigos
