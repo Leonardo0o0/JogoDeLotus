@@ -218,6 +218,7 @@ position = Vector2( 0, 1 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 10
+frame = 25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )

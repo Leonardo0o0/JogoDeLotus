@@ -29,6 +29,8 @@ func inputgetter():
 		velocity.y += 1
 	if Input.is_action_just_pressed("attack"):
 		is_attacking = true
+	if Input.is_action_just_pressed("suicide"):
+		is_ded = true
 	velocity = velocity.normalized() * speed
 	
 func moveanimate():
@@ -82,6 +84,9 @@ func attackhandler():
 func _on_animation_finished(anim_name):
 	if anim_name == "ded":
 		pass
+		
+func takedamage(damage):
+	life = life - damage
 
 func death_handler():
 	"""
