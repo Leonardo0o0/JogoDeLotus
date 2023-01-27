@@ -9,7 +9,7 @@ onready var animation = get_node("AnimationPlayer")
 onready var sprite = get_node("Sprite")
 var didtheded = 0
 var is_attacking = false
-
+var attacks = ["down sword", "up sword", "right sword"]
 
 func _ready():
 	lastlook.x = 1
@@ -62,6 +62,7 @@ func moveanimate():
 			lastlook.x = -1
 			sprite.flip_h = true
 			animation.play("right run")
+
 			
 func idleanimate():
 	if lastlook.x == 0:
@@ -79,11 +80,29 @@ func idleanimate():
 			animation.play("right idle")
 
 func attackhandler():
-	pass
+	"""
+	Lida com sistemas relacionados a atacar
+	"""
+	if lastlook.x == 0:
+		if lastlook.y > 0:
+			animation.play("down sword")
+		if lastlook.y < 0:
+			animation.play("up sword")
+	elif lastlook.y == 0:
+		if lastlook.x > 0:
+			sprite.flip_h = false
+			animation.play("right sword")
+		else:
+			lastlook.x = -1
+			sprite.flip_h = true
+			animation.play("right sword")
 	
-func _on_animation_finished(anim_name):
+func _on_animation_finished(anim_name): #Looping animations make animations never end!
 	if anim_name == "ded":
 		pass
+	if anim_name in attacks:
+		print("kys mate")
+		is_attacking = false
 		
 func takedamage(damage):
 	life = life - damage
@@ -104,18 +123,20 @@ func death_handler():
 	
 func _physics_process(delta):
 	if is_ded == false:
-		inputgetter()
-		move_and_slide(velocity*delta)
-		if velocity.y != 0 or velocity.x != 0:
-			moveanimate()
+		if is_attacking == false:
+			inputgetter()
+			move_and_slide(velocity*delta)
+			if velocity.y != 0 or velocity.x != 0:
+				moveanimate()
+			else:
+				idleanimate()
+			if is_attacking == true:
+				attackhandler()
+			if life <= 0:
+				is_ded = true
 		else:
-			idleanimate()
-		if is_attacking == true:
 			attackhandler()
-		if life <= 0:
-			is_ded = true
-			
-	if is_ded == true: #Se estiver morto, he gets a fucking lights out :>
+	elif is_ded == true: #Se estiver morto, he gets a fucking lights out :>
 		death_handler()
 	
 			
