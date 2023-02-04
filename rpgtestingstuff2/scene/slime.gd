@@ -21,20 +21,9 @@ func _ready():
 
 func inputgetter():
 	velocity = Vector2()
-	if Input.is_action_pressed('ui_right'):
-		velocity.x += 1
-	if Input.is_action_pressed('ui_left'):
-		velocity.x -= 1
-	if Input.is_action_pressed('ui_up'):
-		velocity.y -= 1
-	if Input.is_action_pressed('ui_down'):
-		velocity.y += 1
-	if Input.is_action_just_pressed("attack"):
-		is_attacking = true
-	if Input.is_action_just_pressed("suicide"):
-		is_ded = true
-	velocity = velocity.normalized() * speed
+	pass
 	
+
 func moveanimate():
 	if velocity.x == 0:
 		lastlook.x = 0
@@ -161,5 +150,7 @@ func _physics_process(delta):
 			attackhandler()
 	elif is_ded == true: #Se estiver morto, he gets a fucking lights out :>
 		death_handler()
+
+
 	
 			
