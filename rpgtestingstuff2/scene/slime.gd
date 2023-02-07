@@ -1,5 +1,13 @@
 extends KinematicBody2D
 
+
+"""
+PENDENCIAS
+	FUNÇÃO DE TOMAR DANO DO SLIME
+	IA NO INPUTGETTER -> deixar pra se por acaso sobrar tempo. 
+		Observação básica: não vai sobrar tempo
+	
+"""
 export(int) var speed = 10000
 export(bool) var is_ded = false
 export(int) var life
@@ -19,8 +27,7 @@ func _ready():
 	animation.play("right idle")
 	life = 3
 
-func inputgetter():
-	velocity = Vector2()
+func inputgetter(): #programar aqui a questão da IA, se der tempo.
 	pass
 	
 
@@ -111,8 +118,8 @@ func attackhandler():
 	
 	
 func _on_animation_finished(anim_name): #Looping animations make animations never end!
-	if anim_name == "ded":
-		pass
+	if anim_name == "die":
+		queue_free()
 	if anim_name in attacks:
 		is_attacking = false
 		
@@ -128,10 +135,8 @@ func death_handler():
 	3. Troca sprite base para animação de dead idle
 	"""
 	if didtheded == 0:
-		animation.play("ded")
+		animation.play("die")
 		didtheded = 1
-	else:
-		animation.play("ded idle")
 	
 func _physics_process(delta):
 	if is_ded == false:
@@ -150,7 +155,7 @@ func _physics_process(delta):
 			attackhandler()
 	elif is_ded == true: #Se estiver morto, he gets a fucking lights out :>
 		death_handler()
-
-
-	
-			
+		
+func getattacked(area):
+	if area.is_in_group("player_attack") :
+		is_ded = true
