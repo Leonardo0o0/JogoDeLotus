@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/musicacombat.mp3-c5b25bd1e5d77084aa317786f001a1e3.mp3str"
+
+[deps]
+
+source_file="res://assets/soundassets/musicacombat.mp3"
+dest_files=[ "res://.import/musicacombat.mp3-c5b25bd1e5d77084aa317786f001a1e3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
